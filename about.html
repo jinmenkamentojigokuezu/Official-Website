@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>人面仮面と地獄絵図 | Official Site</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  /* About Hero */
+  .about-hero {
+    background-image: url("images/livetop.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    padding: 120px 20px;
+    position: relative;
+  }
+  .about-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 0;
+  }
+  .about-text {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .about-text h2 {
+    font-size: 48px;
+    margin-bottom: 40px;
+  }
+  .about-text p {
+    font-size: 20px;
+    line-height: 2;
+  }
+
+  /* フェードアップ */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* メンバーグリッド */
+  .members-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 100px auto 60px;
+    padding: 0 20px;
+  }
+  .member {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    /* 初期は透明・左にずらす */
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  /* メンバーが表示されるとき */
+  .member.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .member img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  .member:hover img {
+    transform: scale(1.05);
+  }
+  .member-info {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px 15px;
+    border-radius: 5px;
+    max-width: 80%;
+  }
+  .member-info h3 {
+    margin: 0 0 5px;
+    font-size: 20px;
+  }
+  .member-info p {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  /* レスポンシブ：1列 */
+  @media (max-width: 768px) {
+    .members-grid {
+      grid-template-columns: 1fr;
+    }
+    .member {
+      transform: translateX(0);
+    }
+  }
+</style>
+</head>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<body>
+
+<header class="header">
+  <nav class="nav-left">
+    <a href="index.html#top">Top</a>
+    <a href="about.html">About</a>
+    <a href="index.html#video">Video</a>
+    <a href="index.html#news">News</a>
+    <a href="index.html#live">Photo</a>
+  </nav>
+
+  <div class="logo">
+    <img src="images/logo.png" alt="Band Logo" />
+  </div>
+
+  <div class="nav-right">
+    <a href="https://instagram.com/kitsunebi0459" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://x.com/kitsunebi0459" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+    <a href="https://youtube.com/@kitsunebi0459" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+    <a href="https://tiktok.com/@kitsunebi0459" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i></a>
+    <a href="https://open.spotify.com/artist/0u10d8v9GBQeAnvhStRc6c" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-spotify"></i></a>
+  </div>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</header>
+
+<section class="about-hero fade-up">
+  <div class="about-text">
+    <h2>About</h2>
+    <p>2017年5月始動。怪異と狂気をまといしカルトバンド、人面仮面と地獄絵図。</p>
+    <p>スラッシュメタルの攻撃性とハードロックのうねるグルーヴを基盤に、</p>
+    <p>狂気的なボーカルが描き出すのは悪夢と祝祭のあわい。</p>
+    <p>邪悪で異質、それでいてどこかポップ——</p>
+    <p>地獄絵図の中で鳴り響くのは、破壊か、それとも陶酔か。</p>
+    <p>人面仮面の向こう側へ、ようこそ。</p>
+  </div>
+</section>
+
+<section class="members-grid">
+  <div class="member">
+    <img src="images/ryutan.jpg" alt="Member 1" />
+    <div class="member-info">
+      <h3>武石 龍之介</h3>
+      <p>Vocal,Guiar</p>
+    </div>
+  </div>
+
+  <div class="member">
+    <img src="images/ohashi.jpg" alt="Member 2" />
+    <div class="member-info">
+      <h3>おはし</h3>
+      <p>Bass</p>
+    </div>
+  </div>
+
+  <div class="member">
+    <img src="images/tokuchan.jpg" alt="Member 3" />
+    <div class="member-info">
+      <h3>Tock-Chang!!!</h3>
+      <p>Durm</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // fade-upはそのまま
+  const fadeElements = document.querySelectorAll(".fade-up");
+
+  // メンバー要素も監視
+  const memberElements = document.querySelectorAll(".member");
+
+  function onScroll() {
+    fadeElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add("show");
+      }
+    });
+    memberElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add("show");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", onScroll);
+  // ページロード時も実行
+  window.addEventListener("load", onScroll);
+</script>
+<footer class="footer">
+  <div class="footer-inner">
+
+    <h3 class="footer-logo">JINMEN KAMEN TO JIGOKUEZU</h3>
+
+    <div class="footer-icons">
+
+      <a href="https://youtube.com/@kitsunebi0459"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="YouTube">
+        <i class="fa-brands fa-youtube sns-icon"></i>
+      </a>
+
+      <a href="https://instagram.com/kitsunebi0459"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Instagram">
+        <i class="fa-brands fa-instagram sns-icon"></i>
+      </a>
+
+      <a href="https://x.com/kitsunebi0459"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="X">
+        <i class="fa-brands fa-x-twitter sns-icon"></i>
+      </a>
+
+      <a href="https://tiktok.com/@kitsunebi0459"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="TikTok">
+        <i class="fa-brands fa-tiktok sns-icon"></i>
+      </a>
+
+      <a href="https://open.spotify.com/artist/0u10d8v9GBQeAnvhStRc6c"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Spotify">
+        <i class="fa-brands fa-spotify sns-icon"></i>
+      </a>
+
+    </div>
+
+<p class="copyright">
+  © <span id="year"></span> 人面仮面と地獄絵図
+</p>
+
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
+
+  </div>
+</footer>
+<script>
+let lastScroll = 0;
+const header = document.querySelector(".header");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+
+  /* 下スクロールで隠す */
+  if (currentScroll > lastScroll && currentScroll > 100) {
+    header.classList.add("hide");
+  } else {
+    header.classList.remove("hide");
+  }
+
+  /* 少しスクロールしたら影つける */
+  if (currentScroll > 50) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+
+  lastScroll = currentScroll;
+});
+</script>
+	
+<script>
+const hamburger = document.querySelector(".hamburger");
+const navLeft = document.querySelector(".nav-left");
+const navLinks = document.querySelectorAll(".nav-left a");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("open");
+  navLeft.classList.toggle("active");
+});
+
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    hamburger.classList.remove("open");
+    navLeft.classList.remove("active");
+  });
+});
+</script>
+	
+</body>
+</html>

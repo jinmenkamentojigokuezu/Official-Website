@@ -1,0 +1,684 @@
+/* =========================
+   Base
+========================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 120px;
+  margin: 0;
+  font-family: "Noto Serif JP", "Noto Serif", serif;
+  background: #ffffff;
+  color: #111;
+}
+
+/* =========================
+   Header
+========================= */
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  background: #ffffff;
+  z-index: 999;
+  transition: transform 0.4s ease;
+}
+
+.header.hide {
+  transform: translateY(-100%);
+}
+
+.header.scrolled {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.logo {
+  position: absolute;
+  left: 48%;
+  transform: translateX(-50%);
+}
+
+.logo img {
+  height: 70px;
+  transition: 0.4s;
+}
+
+.nav-left {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-left a {
+  text-decoration: none;
+  color: #111;
+  transition: 0.3s;
+}
+
+.nav-left a:hover {
+  color: #b30000;
+}
+
+/* SNSアイコン縦固定 */
+.nav-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: fixed;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.nav-right a {
+  color: #111;
+  font-size: 18px;
+}
+
+.sns-icon {
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+
+.footer-icons a:hover .sns-icon,
+.header-icons a:hover .sns-icon {
+  transform: translateY(-4px) scale(1.15);
+  color: #b30000;
+}
+
+/* ハンバーガー */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  left: 20px; /* 左寄せ */
+  z-index: 1001; /* SNSより前に表示 */
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  background-color: #111;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* =========================
+   Hero
+========================= */
+
+.hero img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  margin-bottom: 140px;
+}
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-slider .slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-slider .slide.active {
+  opacity: 1;
+}
+
+/* テキストオーバーレイ */
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+  text-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+
+.hero-text h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-btn {
+  display: inline-block;
+  background-color: #b30000;
+  color: white;
+  padding: 12px 30px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  opacity: 0.8;
+}
+/* =========================
+   Section
+========================= */
+
+.section {
+  padding: 140px 12%;
+  text-align: center;
+}
+
+#about .about-text {
+  text-align: left;
+}
+
+/* =========================
+   About
+========================= */
+
+#about {
+  background-image: url("images/about-bg.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  position: relative;
+}
+
+#about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.about-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+   Video
+========================= */
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 のアスペクト比 */
+  height: 0;
+  margin: 0 auto;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================
+   Live Schedule
+========================= */
+
+.live-schedule {
+  text-align: center;
+}
+
+.schedule-list {
+  max-width: 600px;
+  margin: 40px auto 0;
+}
+
+.schedule-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 18px 0;
+  font-size: 18px;
+}
+
+.schedule-date {
+  font-weight: 600;
+}
+
+.schedule-place {
+  opacity: 0.8;
+}
+
+/* スマホ */
+
+@media (max-width:768px){
+
+.schedule-item{
+  flex-direction: column;
+  gap:5px;
+  text-align:center;
+}
+
+}
+
+/* =========================
+   Live Gallery
+========================= */
+
+#live {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.live-gallery {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.live-track {
+  display: flex;
+  gap: 30px;
+  animation: scroll 90s linear infinite;
+}
+
+.live-track img {
+  width: 420px;
+  border-radius: 5px;
+  flex-shrink: 0;
+  transition: 0.3s;
+}
+
+.live-track img:hover {
+  transform: scale(1.05);
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* 矢印ボタン */
+.arrow {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .arrow {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.4);
+    color: white;
+    font-size: 28px;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+  }
+  .arrow.left { left: 12px; }
+  .arrow.right { right: 12px; }
+}
+
+/* =========================
+   Music Section
+========================= */
+
+.music-section {
+  text-align: left;
+}
+
+.music-container {
+  display: flex;
+  align-items: center;
+  gap: 200px;
+}
+
+.music-art img {
+  width: 100%;
+  max-width: 650px;
+  display: block;
+}
+
+.music-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.music-label {
+  font-size: 20px;
+  letter-spacing: 4px;
+}
+
+.music-title {
+  font-size: 45px;
+  letter-spacing: 10px;
+  font-weight: 500;
+}
+
+.music-link {
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: #111;
+  transition: 0.3s;
+}
+
+.music-link:hover { opacity: 0.5; }
+
+/* =========================
+   Footer
+========================= */
+
+.footer {
+  background: #000;
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-size: 22px;
+  letter-spacing: 4px;
+  margin-bottom: 40px;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.sns-icon {
+  width: 26px;
+  height: 26px;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.sns-icon:hover {
+  opacity: 0.6;
+}
+
+.copyright {
+  font-size: 11px;
+  letter-spacing: 2px;
+  opacity: 0.5;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 768px) {
+
+  /* ヘッダー調整 */
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 20px;
+  }
+
+  .logo {
+    position: static;
+    transform: none;
+    margin: 10px 0;
+  }
+
+  .nav-left {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 70%;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    transition: 0.4s;
+    z-index: 999;
+  }
+
+  .nav-left.active { left: 0; }
+
+  .nav-left a { font-size: 1.2rem; }
+
+  /* SNSアイコンは縦に固定済み */
+
+  /* メインコンテンツ調整 */
+  .section { padding: 80px 8%; }
+  .music-container { flex-direction: column; gap: 40px; }
+  .music-art img { width: 90%; }
+  .music-title { font-size: 42px; }
+  .music-section { text-align: center; }
+  .music-info { align-items: center; }
+
+  .live-track { animation: none; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+  .live-track img { scroll-snap-align: center; width: 80%; }
+
+  .live-track img { width: 280px; }
+
+  .hamburger { display: flex; }
+
+  .arrow { display: flex; }
+}
+/* =========================
+   Members Section
+========================= */
+
+.members {
+  padding: 100px 20px;
+}
+
+.members-grid {
+  display: grid;
+  gap: 30px;
+  max-width: 1400px; /* 全体の幅を広くして写真を大きく */
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.member {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  height: 500px; /* 写真の高さを指定 */
+  border-radius: 8px; /* optional: 少し丸める */
+}
+
+.member img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 写真比率を維持して枠いっぱいに */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.member:hover img {
+  transform: scale(1.05);
+}
+
+/* 文字部分：背景を透明に */
+.member-info {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  text-shadow: 0 0 10px rgba(0,0,0,0.8);
+  background: transparent; /* 背景を透明に変更 */
+  padding: 0; /* 必要に応じて調整 */
+}
+
+.member-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 22px; /* 少し大きめ */
+  font-weight: 600;
+}
+
+.member-info p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* =========================
+   Responsive for Mobile
+========================= */
+@media (max-width: 768px) {
+  .members-grid {
+    gap: 20px;
+  }
+
+  .member {
+    height: 350px; /* スマホ向けに縮小 */
+  }
+
+  .member-info h3 {
+    font-size: 20px;
+  }
+
+  .member-info p {
+    font-size: 14px;
+  }
+}
+@media (max-width:768px){
+
+body{
+padding-top:80px;
+}
+
+}
+@media (max-width:768px){
+
+.hero-slider{
+height:75vh;
+}
+
+}
+.live-track{
+scrollbar-width:none;
+}
+
+.live-track::-webkit-scrollbar{
+display:none;
+}
+.nav-left.active{
+left:0;
+box-shadow:0 0 0 100vw rgba(0,0,0,0.4);
+}
+@media (max-width:768px){
+
+.nav-right a{
+font-size:22px;
+}
+
+}
+@media (max-width:768px){
+
+.about-text h2{
+font-size:34px;
+}
+
+.about-text p{
+font-size:16px;
+line-height:1.8;
+}
+
+}
+@media (max-width:768px){
+
+.about-hero{
+background-attachment:scroll;
+}
+
+}
+@media (max-width:768px){
+
+body{
+padding-top:80px;
+}
+
+}
+/* スクロールフェード */
+
+.fade-up{
+opacity:0;
+transform:translateY(40px);
+transition:opacity 1s ease, transform 1s ease;
+}
+
+.fade-up.show{
+opacity:1;
+transform:translateY(0);
+}
+/* loading screen */
+
+#loading{
+position:fixed;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:2000;
+transition:opacity 1s ease;
+}
+
+.loader-text{
+color:white;
+font-size:22px;
+letter-spacing:6px;
+}
